@@ -1,3 +1,7 @@
+WohnheimRouter
+=============
+[![Build Status](https://travis-ci.org/fniephaus/WohnheimRouter.svg)](https://travis-ci.org/fniephaus/WohnheimRouter)
+
 **HINWEIS:** *Ich beantworte keine Fragen und helfen nicht bei Problemen. Mit openWRT könnt ihr euren Router zerstören, deshalb lest die Anleitung sorgfältig und führt die nächsten Schritte nur dann aus, wenn ihr wisst, was ihr tut. Für eventuelle Schäden ist jeder selber verantwortlich.*
 
 Diese Anleitung bezieht sich zwar nur auf einen [TP-Link TL-WR841N WLAN-Router](http://www.amazon.de/dp/B001FWYGJS) (<20 Euro auf Amazon), das Vorgehen ab Schritt 4 wird aber bei anderen openWRT-fähigen Routern mit openWRT 12.09 sehr ähnlich sein. Das richtige openWRT Image müsst ihr euch in diesem Fall aber selber suchen.
