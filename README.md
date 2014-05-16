@@ -74,7 +74,13 @@ Das Vorgehen ist ähnlich wie vorher. Es muss allerdings folgende Datei als Upda
 
 Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
 
-Nun musst du ebenfalls die MAC-Adresse überschreiben, ein VPN Interface mit PPtP anlegen und deine Logins eintragen.
+Die `WohnheimRestore.tar.gz` Datei wurde nicht auf dem Router v9.x getestet, deswegen sollte man folgende Schritte manuell ausführen:
+
+1. Die MAC-Adresse des WAN-Ports überschreiben und erst danach das Kabel verbinden
+
+2. Ein VPN Interface mit PPtP anlegen und deine Logins eintragen
+
+3. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
 
 Hier die VPN-Details nochmal:
 
