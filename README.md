@@ -12,6 +12,7 @@ Ein paar Screenshots findet ihr beiliegend.
 * **[Anleitung für den TL-WR841N v9.x](#anleitung9)**
 * **[Troubleshooting](#troubleshooting)**
 * **[Anmerkungen](#anmerkungen)**
+* **[Mithelfen](#mithelfen)**
 * **[Credits](#credits)**
 
 
@@ -118,6 +119,10 @@ cd OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64
 make image PROFILE=TLWR841 PACKAGES="base-files busybox dnsmasq dropbear firewall fstools hostapd-common ip6tables iptables iw iwinfo jshn kernel kmod-ath kmod-ath9k kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core kmod-crypto-ecb kmod-crypto-hash kmod-crypto-manager kmod-crypto-pcompress kmod-crypto-sha1 kmod-gpio-button-hotplug kmod-gre kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core kmod-ipt-nat kmod-ipt-nathelper kmod-iptunnel kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt kmod-mac80211 kmod-mppe kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-pptp kmod-slhc kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-i18n-english luci-lib-core luci-lib-ipkg luci-lib-nixio luci-lib-sys luci-lib-web luci-mod-admin-core luci-mod-admin-full luci-proto-core luci-proto-ppp luci-sgi-cgi luci-theme-base luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe ppp-mod-pptp procd resolveip swconfig uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus wpad-mini"
 
 ```
+
+## <a name="mithelfen"></a>Mithelfen
+Es kann durchaus sein, dass die Anleitung an manchen Stellen unvollständig oder etwas zu technisch ist. Gerne kannst du das [Repository forken](https://help.github.com/articles/fork-a-repo) und dann mit einem [Pull-Request](https://help.github.com/articles/using-pull-requests) Verbesserungen und Ergänzungen einreichen!
+
 
 ## <a name="credits"></a>Credits
 An dieser Stelle ein Dank an die [openWRT Community](https://openwrt.org/) für das Bereitstellen einer alternativen Firmware, mit der man das volle Potential des Routers ausschöpfen kann.
