@@ -12,9 +12,11 @@ script:
 after_success:
 - mv bin/ar71xx/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin $PROJECT_HOME/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin
 - cd $HOME
-- cat $DEPLOY_KEY > .travis/deploy_key.pem
-- chmod 600 .travis/deploy_key.pem
-- ssh-add .travis/deploy_key.pem
+- cat $DEPLOY_KEY > deploy_key.pem
+- chmod 600 deploy_key.pem
+- ssh-add deploy_key.pem
 - cd $PROJECT_HOME
+- git config --global user.name "Fabio Niephaus"
+- git config --global user.email "fniephaus@users.noreply.github.com"
 - git commit -am "Updated v9.x firmware [ci skip]"
 - git push
