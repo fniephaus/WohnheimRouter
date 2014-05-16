@@ -1,0 +1,34 @@
+HINWEIS: Ich beantworte keine Fragen und helfen nicht bei Problemen. Mit openWRT könnt ihr euren Router zerstören, deshalb lest die Anleitung sorgfältig und führt die nächsten Schritte nur dann aus, wenn ihr wisst, was ihr tut. Für eventuelle Schäden ist jeder selber verantwortlich.
+
+Diese Anleitung bezieht sich zwar nur auf einen TP-Link TL-WR841N WLAN-Router (<20 Euro auf Amazon), das Vorgehen ab Schritt 4 wird aber bei anderen openWRT-fähigen Routern sehr ähnlich sein. Das richtige openWRT Image müsst ihr euch in diesem Fall aber selber suchen.
+Zunächste muss die Software des Routers mit openWRT ersetzt werden, dann könnt ihr die Konfigurationen einfach mit der beigefügten Datei überschreiben und anschließend MAC-Adresse und VPN-Logins an den richtigen Stellen eintragen. Fertig.
+Ein paar Screenshots findet ihr beiliegend.
+
+== Schritt Anleitung ==
+0. Verbinde Router und Computer mit einem LAN-Kabel per LAN Port 1 und stelle sicher, das der WAN Port noch nicht mit deiner LAN-Buchse verbunden ist!
+1. In diesem Paket befindet sich zwei Datei mit den Namen "openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin" und "openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin". Mithilfe der entsprechenden Datei kannst du die Software des Routers mit openWRT ersetzen. Die Versionsnummer findest du auf dem Gehäuse, entweder v8 oder v9.
+2. Logge dich auf deinem Router unter http://192.168.0.1/ ein und lade die entsprechende Datei als Update über das Webinterface des Routers hoch.
+3. Nun wird die Firmware des Routers mit openWRT überschrieben. Keine Kabel ziehen, sondern warten!
+4. Der Router sollte anschließend unter http://192.168.1.1/ erreichbar sein.
+5. Nun musst du die Konfigurationen mithilfe der WohnheimRestore.tar.gz Datei zurücksetzen.
+6. Danach startet der Router neu und ein neues WLAN mit dem Namen "WohnheimWLAN" sollte zu finden sein.
+7. Ab jetzt kann auch per WLAN Verbindung weitergearbeitet. Der WLAN-Schlüssel lautet "8149281485068231".
+8. Jetzt geht's du wieder auf die openWRT Oberfläche. Der Port sollte sich allerdings geändert haben: http://192.168.1.1:8080/. Passwort lautet "Wohnheim".
+9. Unter "Network" klickst du nun auf "Edit" in der WAN Zeile.
+10. Dort trägst du die MAC-Adresse ein, die du Zeik mitgeteilt hast, und klickst auf "Save & Apply".
+11. Erst jetzt verbindest du die WAN-Buchse mit der LAN-Box in deinem Zimmer.
+12. Der Router sollte dann eine IP-Adresse per DHCP zugewiesen bekommen.
+13. Hat das alles soweit geklappt, kannst du nun auf "Edit" in der VPN Zeile gehen und deine Zeik Login-Daten ergänzen. Dazu muss allerdings vorher das "ppp-mod-pptp" Paket installiert werden. Dazu klickst du auf "Install package 'ppp-mod-pptp'" und dann musst du die Paketliste aktualisieren und nochmal auf "Install package 'ppp-mod-pptp'" klicken.
+14. Wenn du das alles erledigt hast, startest du den Router unter "System" -> "Reboot" neu.
+15. Jetzt sollte auch die VPN Schnittstelle eine IP zugewiesen bekommen.
+16. Ab jetzt wird der gesamte Traffic durch den VPN-Tunnel geleitet und du hast eine andere IP als zuvor.
+17. Fertig! Du surfst jetzt ohne Portblockade!
+18. Jetzt solltest du vielleicht den Name und Passwort des WLANs sowie das openWRT Admin Passwort ändern.
+
+== Troubleshooting ==
+
+1. Hin und wieder bricht die Internetverbindung zusammen. Ist das normal?
+Ja, das ist es. Manchmal wird die VPN-Verbindung aus irgendeinem Grund einfach getrennt. openWRT sollte die Verbindung dann aber wieder selbstständig aufbauen. Bei mir kommt das etwa einmal pro Monat vor.
+
+2. Ich bekomme es irgendwie nicht hin. Was kann ich tun?
+Frag in der Wohnheimgruppe um Hilfe. Du wirst sicher nicht der Erste sein.
