@@ -108,8 +108,9 @@ Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](..
 
 ### Firmware v9.0
 Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin) enthält openWRT Barrier Breaker, eine experimentelle Version aus dem Trunk.
-Gebaut wurde sie mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate) mithilfe folgenden Kommandos:
+Gebaut wir sie automatisch via [Travis CI](https://travis-ci.org/fniephaus/WohnheimRouter) mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate).
 
+Zum Selberbauen kann man unter Linux folgendes ausführen:
 ```bash
 cd ~
 mkdir openwrt && cd openwrt
