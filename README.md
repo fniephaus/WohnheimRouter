@@ -107,8 +107,9 @@ Frag in der [Wohnheimgruppe](https://www.facebook.com/notes/wohnanlage-potsdam-s
 Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin) enthält openWRT 12.09 und stammt aus dem offiziellen [openWRT Download Bereich](http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/).
 
 ### Firmware v9.0
-Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin) enthält openWRT Barrier Breaker, eine experimentelle Version aus dem Trunk.
-Gebaut wir sie automatisch via [Travis CI](https://travis-ci.org/fniephaus/WohnheimRouter) mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate).
+Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin) enthält ein lauffähigen openWRT Barrier Breaker, eine experimentelle Version aus dem Trunk.
+
+Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin) wird von [Travis CI](https://travis-ci.org/fniephaus/WohnheimRouter) mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate) automatisch gebaut und ist deshalb neuer als die andere Firmware für v9.x, aber nicht getestet. Wer es sich zutraut, kann sie gerne ausprobieren!
 
 Zum Selberbauen kann man unter Linux folgendes ausführen:
 ```bash

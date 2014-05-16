@@ -32,7 +32,7 @@ script:
     procd resolveip swconfig uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus
     wpad-mini"
 after_success:
-  - mv bin/ar71xx/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin $PROJECT_HOME/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin
+  - mv bin/ar71xx/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin $PROJECT_HOME/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin
   - cd $PROJECT_HOME
   - git commit -am "Updated v9.x firmware [ci skip]"
   - git status
