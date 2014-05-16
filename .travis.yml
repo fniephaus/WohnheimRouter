@@ -2,35 +2,36 @@ env:
   global:
     secure: OWJfYK0XDMC3FqNWiNQoOr3yIU9u6l5DD5qOMvV68MYTDXICLQbx9ZFRAgf7B8uvaOVDyZdLZqleLIpA9vhVZcmqd0HvsCAxTa5kPMq238xUcQJaZtRwYjfp/EpRmlyaT9DwvCU96Yha9y5GInJ4u0j7UhN/ZWyRm4jAod7dunA=
 before_script:
-- openssl aes-256-cbc -k "$secret" -in wohnheimrouter.enc -d -a -out ../wohnheimrouter
-- chmod 600 ../wohnheimrouter
-- ssh-add ../wohnheimrouter
-- git config --global user.name "Fabio Niephaus"
-- git config --global user.email "fniephaus@users.noreply.github.com"
+  - openssl aes-256-cbc -k "$secret" -in wohnheimrouter.enc -d -a -out ../wohnheimrouter
+  - chmod 600 ../wohnheimrouter
+  - eval `ssh-agent -s`
+  - ssh-add ../wohnheimrouter
+  - git config --global user.name "Fabio Niephaus"
+  - git config --global user.email "fniephaus@users.noreply.github.com"
 script:
-- export PROJECT_HOME="$(pwd)"
-- cd $HOME
-- mkdir openwrt && cd openwrt
-- wget http://downloads.openwrt.org/snapshots/trunk/ar71xx/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
-- tar -xvjf OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
-- cd OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64
-- make image PROFILE=TLWR841 PACKAGES="base-files busybox dnsmasq dropbear firewall
-  fstools hostapd-common ip6tables iptables iw iwinfo jshn kernel kmod-ath kmod-ath9k
-  kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core
-  kmod-crypto-ecb kmod-crypto-hash kmod-crypto-manager kmod-crypto-pcompress kmod-crypto-sha1
-  kmod-gpio-button-hotplug kmod-gre kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core
-  kmod-ipt-nat kmod-ipt-nathelper kmod-iptunnel kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt
-  kmod-mac80211 kmod-mppe kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-pptp kmod-slhc
-  kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc
-  libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus
-  libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-i18n-english
-  luci-lib-core luci-lib-ipkg luci-lib-nixio luci-lib-sys luci-lib-web luci-mod-admin-core
-  luci-mod-admin-full luci-proto-core luci-proto-ppp luci-sgi-cgi luci-theme-base
-  luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe ppp-mod-pptp
-  procd resolveip swconfig uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus
-  wpad-mini"
+  - export PROJECT_HOME="$(pwd)"
+  - cd $HOME
+  - mkdir openwrt && cd openwrt
+  - wget http://downloads.openwrt.org/snapshots/trunk/ar71xx/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
+  - tar -xvjf OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
+  - cd OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64
+  - make image PROFILE=TLWR841 PACKAGES="base-files busybox dnsmasq dropbear firewall
+    fstools hostapd-common ip6tables iptables iw iwinfo jshn kernel kmod-ath kmod-ath9k
+    kmod-ath9k-common kmod-cfg80211 kmod-crypto-aes kmod-crypto-arc4 kmod-crypto-core
+    kmod-crypto-ecb kmod-crypto-hash kmod-crypto-manager kmod-crypto-pcompress kmod-crypto-sha1
+    kmod-gpio-button-hotplug kmod-gre kmod-ip6tables kmod-ipt-conntrack kmod-ipt-core
+    kmod-ipt-nat kmod-ipt-nathelper kmod-iptunnel kmod-ipv6 kmod-ledtrig-usbdev kmod-lib-crc-ccitt
+    kmod-mac80211 kmod-mppe kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-pptp kmod-slhc
+    kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc
+    libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus
+    libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-i18n-english
+    luci-lib-core luci-lib-ipkg luci-lib-nixio luci-lib-sys luci-lib-web luci-mod-admin-core
+    luci-mod-admin-full luci-proto-core luci-proto-ppp luci-sgi-cgi luci-theme-base
+    luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe ppp-mod-pptp
+    procd resolveip swconfig uboot-envtools ubox ubus ubusd uci uhttpd uhttpd-mod-ubus
+    wpad-mini"
 after_success:
-- mv bin/ar71xx/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin $PROJECT_HOME/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin
-- cd $PROJECT_HOME
-- git commit -am "Updated v9.x firmware [ci skip]"
-- git push
+  - mv bin/ar71xx/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin $PROJECT_HOME/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin
+  - cd $PROJECT_HOME
+  - git commit -am "Updated v9.x firmware [ci skip]"
+  - git push
