@@ -5,6 +5,7 @@ before_script:
   - openssl aes-256-cbc -k "$secret" -in wohnheimrouter.enc -d -a -out ~/.ssh/wohnheimrouter
   - chmod 600 ~/.ssh/wohnheimrouter
   - eval `ssh-agent -s`
+  - ssh-add -D
   - ssh-add ~/.ssh/wohnheimrouter
   - git config --global user.name "Fabio Niephaus"
   - git config --global user.email "fniephaus@users.noreply.github.com"
