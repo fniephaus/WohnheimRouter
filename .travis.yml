@@ -2,6 +2,8 @@ env:
   global:
     secure: OWJfYK0XDMC3FqNWiNQoOr3yIU9u6l5DD5qOMvV68MYTDXICLQbx9ZFRAgf7B8uvaOVDyZdLZqleLIpA9vhVZcmqd0HvsCAxTa5kPMq238xUcQJaZtRwYjfp/EpRmlyaT9DwvCU96Yha9y5GInJ4u0j7UhN/ZWyRm4jAod7dunA=
 before_script:
+  - git checkout master
+  - git status
   - openssl aes-256-cbc -k "$secret" -in wohnheimrouter.enc -d -a -out ~/.ssh/wohnheimrouter
   - chmod 600 ~/.ssh/wohnheimrouter
   - eval `ssh-agent -s`
