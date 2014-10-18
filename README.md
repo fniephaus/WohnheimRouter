@@ -14,6 +14,7 @@ Ein paar Screenshots findet ihr beiliegend.
 
 * **[Anleitung für den TL-WR841N v8.x](#anleitung8)**
 * **[Anleitung für den TL-WR841N v9.x](#anleitung9)**
+* **[Mehr Informationen](#info)**
 * **[Troubleshooting](#troubleshooting)**
 * **[Anmerkungen](#anmerkungen)**
 * **[Mithelfen](#mithelfen)**
@@ -94,6 +95,9 @@ VPN-Server: vpn.uni-potsdam.de
 PAP/CHAP username: deinname@uni-potsdam.de
 PAP/CHAP password: *Dein Passwort*
 ```
+## <a name="info"></a>Mehr Informationen
+Mehr Informationen zu openWRT für den TP-Link TL-WR841N WLAN Router finden sich unter:
+http://wiki.openwrt.org/toh/tp-link/tl-wr841nd
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
