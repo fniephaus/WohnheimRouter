@@ -24,7 +24,7 @@ Ein paar Screenshots findet ihr beiliegend.
 ## <a name="anleitung8"></a>Anleitung für den TL-WR841N v8.x
 0. Verbinde Router und Computer mit einem LAN-Kabel per LAN Port 1 und stelle sicher, das der WAN Port noch nicht mit deiner LAN-Buchse verbunden ist!
 
-1. In diesem Paket befindet sich eine Datei mit dem Namen "[openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin)". Mithilfe dieser Datei kannst du die Software des Routers mit openWRT ersetzen.
+1. In diesem Paket befindet sich eine Datei mit dem Namen "[openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin?raw=true)". Mithilfe dieser Datei kannst du die Software des Routers mit openWRT ersetzen.
 
 2. Logge dich auf deinem Router unter http://192.168.0.1/ ein und lade diese Datei als Update über das Webinterface des Routers hoch.
 
@@ -33,7 +33,7 @@ Ein paar Screenshots findet ihr beiliegend.
 4. Der Router sollte anschließend unter http://192.168.1.1/ erreichbar sein.
 ![Login](screenshots/01.png)
 
-5. Nun musst du die Konfigurationen mithilfe der [WohnheimRestore.tar.gz](../raw/master/WohnheimRestore.tar.gz) Datei zurücksetzen.
+5. Nun musst du die Konfigurationen mithilfe der [WohnheimRestore.tar.gz](../master/WohnheimRestore.tar.gz?raw=true) Datei zurücksetzen.
 ![Restore](screenshots/02.png)
 
 6. Danach startet der Router neu und ein neues WLAN mit dem Namen "WohnheimWLAN" sollte zu finden sein.
@@ -76,7 +76,7 @@ TP-Link hat kürzlich eine neue Hardwarerevision veröffentlich, auf welcher die
 Es gibt aber eine experimentelle Firmware, die soweit ich das beurteilen kann, stabil läuft. Außerdem bietet diese eine neue Benutzeroberfläche an, die auf [Bootstrap](http://getbootstrap.com/) basiert.
 
 Das Vorgehen ist ähnlich wie vorher. Es muss allerdings folgende Datei als Update auf den Router geladen werden:
-[openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin)
+[openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin?raw=true)
 
 Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
 
@@ -112,12 +112,12 @@ Frag in der [Wohnheimgruppe](https://www.facebook.com/notes/wohnanlage-potsdam-s
 
 
 ### Firmware v8.0
-Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin) enthält openWRT 12.09 und stammt aus dem offiziellen [openWRT Download Bereich](http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/).
+Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v8-squashfs-factory.bin?raw=true) enthält openWRT 12.09 und stammt aus dem offiziellen [openWRT Download Bereich](http://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/).
 
 ### Firmware v9.0
-Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin) enthält ein lauffähigen openWRT Barrier Breaker, eine experimentelle Version aus dem Trunk.
+Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin?raw=true) enthält ein lauffähigen openWRT Barrier Breaker, eine experimentelle Version aus dem Trunk.
 
-Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin](../raw/master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin) wird von [Travis CI](https://travis-ci.org/fniephaus/WohnheimRouter) mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate) automatisch gebaut und ist deshalb neuer als die andere Firmware für v9.x, aber nicht getestet. Wer es sich zutraut, kann sie gerne ausprobieren!
+Die Firmware-Datei [openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory-latest.bin?raw=true) wird von [Travis CI](https://travis-ci.org/fniephaus/WohnheimRouter) mit dem [openWRT Image Builder](http://wiki.openwrt.org/doc/howto/obtain.firmware.generate) automatisch gebaut und ist deshalb neuer als die andere Firmware für v9.x, aber nicht getestet. Wer es sich zutraut, kann sie gerne ausprobieren!
 
 Zum Selberbauen kann man unter Linux folgendes ausführen:
 ```bash
