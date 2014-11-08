@@ -12,13 +12,41 @@ Ein paar Screenshots findet ihr beiliegend.
 
 # Inhalt
 
-* **[Anleitung für den TL-WR841N v8.x](#anleitung8)**
 * **[Anleitung für den TL-WR841N v9.x](#anleitung9)**
+* **[Anleitung für den TL-WR841N v8.x](#anleitung8)**
+* **[Pro Tips](#tips)**
 * **[Mehr Informationen](#info)**
 * **[Troubleshooting](#troubleshooting)**
 * **[Anmerkungen](#anmerkungen)**
 * **[Mithelfen](#mithelfen)**
 * **[Credits](#credits)**
+
+
+## <a name="anleitung9"></a>Anleitung für den TL-WR841N v9.x
+
+TP-Link hat kürzlich eine neue Hardwarerevision veröffentlich, auf welcher die alte Firmware leider nicht mehr läuft.
+Es gibt aber eine experimentelle Firmware, die soweit ich das beurteilen kann, stabil läuft. Außerdem bietet diese eine neue Benutzeroberfläche an, die auf [Bootstrap](http://getbootstrap.com/) basiert.
+
+Das Vorgehen ist ähnlich wie vorher. Es muss allerdings folgende Datei als Update auf den Router geladen werden:
+[openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin?raw=true)
+
+Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
+
+Die `WohnheimRestore.tar.gz` Datei wurde nicht auf dem Router v9.x getestet, deswegen sollte man folgende Schritte manuell ausführen:
+
+1. Die MAC-Adresse des WAN-Ports überschreiben und erst danach das Kabel verbinden
+
+2. Ein VPN Interface mit PPtP anlegen und deine Logins eintragen
+
+3. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
+
+Hier die VPN-Details nochmal:
+
+```
+VPN-Server: vpn.uni-potsdam.de
+PAP/CHAP username: deinname@uni-potsdam.de
+PAP/CHAP password: *Dein Passwort*
+```
 
 
 ## <a name="anleitung8"></a>Anleitung für den TL-WR841N v8.x
@@ -70,31 +98,33 @@ Ein paar Screenshots findet ihr beiliegend.
 
 18. Jetzt solltest du vielleicht den Name und Passwort des WLANs sowie das openWRT Admin Passwort ändern.
 
-## <a name="anleitung9"></a>Anleitung für den TL-WR841N v9.x
 
-TP-Link hat kürzlich eine neue Hardwarerevision veröffentlich, auf welcher die alte Firmware leider nicht mehr läuft.
-Es gibt aber eine experimentelle Firmware, die soweit ich das beurteilen kann, stabil läuft. Außerdem bietet diese eine neue Benutzeroberfläche an, die auf [Bootstrap](http://getbootstrap.com/) basiert.
+## <a name="tips"></a>Pro Tips
+### Dynamic DNS
+Wer unterwegs auf sein Netzwerk Zuhause zugreifen möchte, der kann sich die DDNS Scripts installieren. So ist es theoretisch möglich, sogar seinen eigenen Server im Wohnheim zu betreiben. Ausführliche Anleitungen finden sich in der openWRT Wiki unter:
+http://wiki.openwrt.org/doc/howto/ddns.client
 
-Das Vorgehen ist ähnlich wie vorher. Es muss allerdings folgende Datei als Update auf den Router geladen werden:
-[openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin](../master/firmwares/openwrt-ar71xx-generic-tl-wr841n-v9-squashfs-factory.bin?raw=true)
+### Advanced Routing
+Wer sich ein bisschen mit Routing auskennt, kann die Netzwerkverbindung ein wenig optimieren. Da Port 80 für HTTP und Port 443 für HTTPS ohnehin im WAN freigegeben sind, braucht man entsprechende Verbindungen gar nicht erst durch den VPN-Tunnel routen. Dies ist besonders dann sinnvoll, wenn man 100Mbit anstatt 10Mbit freigeschaltet bekommen hat, denn der Router hat bei höherem Datendurchsatz über 10Mbit ordentlich zu kämpfen. Man muss allerdings berücksichtigen, das man dann mit zwei unterschiedlichen IP-Adressen im Internet unterwegs ist. Die Standard IP kommt für HTTP/S Verbindungen und die VPN IP für alle anderen Verbindungen zum Einsatz. Inwiefern das zu Probleme führt, muss jeder selber herausfinden. 
 
-Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
-
-Die `WohnheimRestore.tar.gz` Datei wurde nicht auf dem Router v9.x getestet, deswegen sollte man folgende Schritte manuell ausführen:
-
-1. Die MAC-Adresse des WAN-Ports überschreiben und erst danach das Kabel verbinden
-
-2. Ein VPN Interface mit PPtP anlegen und deine Logins eintragen
-
-3. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
-
-Hier die VPN-Details nochmal:
-
+So kann man beispielsweise eine solche Route einrichten:
+```bash
+$ okpg install ip
+$ echo 201 novpn >> /etc/iproute2/rt_tables
+$ ip rule add fwmark 1 table novpn
+$ ip route add default via 141.89.217.254 dev eth1 table novpn
+$ ip route list table vpn
+default via 141.89.217.254 dev eth1
+$ iptables -t mangle -A PREROUTING -p tcp --dport 80 -j MARK --set-mark 1
+$ iptables -t mangle -A PREROUTING -p tcp --dport 443 -j MARK --set-mark 1
+$ iptables -t mangle -L PREROUTING -v
+Chain PREROUTING (policy ACCEPT 4927K packets, 5234M bytes)
+ pkts bytes target     prot opt in     out     source               destination
+1051K   60M MARK       tcp  --  any    any     anywhere             anywhere             tcp dpt:www MARK set 0x1
+ 238K   41M MARK       tcp  --  any    any     anywhere             anywhere             tcp dpt:https MARK set 0x1
+4927K 5234M fwmark     all  --  any    any     anywhere             anywhere
 ```
-VPN-Server: vpn.uni-potsdam.de
-PAP/CHAP username: deinname@uni-potsdam.de
-PAP/CHAP password: *Dein Passwort*
-```
+
 ## <a name="info"></a>Mehr Informationen
 Mehr Informationen zu openWRT für den TP-Link TL-WR841N WLAN Router finden sich unter:
 http://wiki.openwrt.org/toh/tp-link/tl-wr841nd
