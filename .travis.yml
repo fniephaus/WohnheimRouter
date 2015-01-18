@@ -28,7 +28,7 @@ script:
     kmod-mac80211 kmod-mppe kmod-nls-base kmod-ppp kmod-pppoe kmod-pppox kmod-pptp kmod-slhc
     kmod-usb-core kmod-usb-ohci kmod-usb2 libblobmsg-json libc libgcc libip4tc libip6tc
     libiwinfo libiwinfo-lua libjson-c libjson-script liblua libnl-tiny libubox libubus
-    libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall luci-i18n-english
+    libubus-lua libuci libuci-lua libxtables lua luci luci-app-firewall
     luci-lib-nixio
     luci-mod-admin-full luci-proto-ppp
     luci-theme-bootstrap mtd netifd odhcp6c odhcpd opkg ppp ppp-mod-pppoe ppp-mod-pptp
