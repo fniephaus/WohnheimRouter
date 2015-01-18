@@ -34,20 +34,25 @@ Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
 
 Die `WohnheimRestore.tar.gz` Datei wurde nicht auf dem Router v9.x getestet, deswegen sollte man folgende Schritte manuell ausführen:
 
-1. Unter "Network" bei "Interfaces" klickst du unter "WAN" auf "Edit". Trage unter "Advanced Settings" in "Override MAC address" die bei der ZEIK angegebene MAC-Adresse ein und klick auf "Save & Apply". Erst danach das Kabel verbinden
+1. Unter "Network" bei "Interfaces" klickst du unter "WAN" auf "Edit". Trage unter "Advanced Settings" in "Override MAC address" die bei der ZEIK angegebene MAC-Adresse ein und klick auf "Save & Apply". Erst danach das Kabel verbinden.
 ![Interfaces1a](screenshots/01n.PNG)
 ![WANn](screenshots/02n.PNG)
 
-2. Ein VPN Interface mit PPtP anlegen
+2. Ein VPN Interface mit PPtP anlegen.
 ![VPNn](screenshots/03n.PNG)
 
-3. Das eben angelegte Interface konfigurieren und die eigenen Daten eintragen
+3. Das eben angelegte Interface konfigurieren und die entsprechenden Daten eintragen.
+```
+VPN-Server: 141.89.249.72
+PAP/CHAP username: deinname@uni-potsdam.de
+PAP/CHAP password: *Dein Passwort*
+```
 ![VPN2n](screenshots/04n.PNG)
 
-4. Unter "Firewall Settings" die Zone "WAN" auswählen, danach "Save & Apply" klicken
+4. Unter "Firewall Settings" die Zone "WAN" auswählen, danach "Save & Apply" klicken.
 ![VPN2n](screenshots/05n.PNG)
 
-5. Den Router neu starten
+5. Den Router neu starten.
 
 6. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
 
