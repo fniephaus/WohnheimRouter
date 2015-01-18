@@ -34,19 +34,24 @@ Anschließend sollte der Router unter http://192.168.1.1 erreichbar sein.
 
 Die `WohnheimRestore.tar.gz` Datei wurde nicht auf dem Router v9.x getestet, deswegen sollte man folgende Schritte manuell ausführen:
 
-1. Die MAC-Adresse des WAN-Ports überschreiben und erst danach das Kabel verbinden
+1. Unter "Network" bei "Interfaces" klickst du unter "WAN" auf "Edit". Trage unter "Advanced Settings" in "Override MAC address" die bei der ZEIK angegebene MAC-Adresse ein und klick auf "Save & Apply". Erst danach das Kabel verbinden
+![Interfaces1a](screenshots/01n.PNG)
+![WANn](screenshots/02n.PNG)
 
-2. Ein VPN Interface mit PPtP anlegen und deine Logins eintragen
+2. Ein VPN Interface mit PPtP anlegen
+![VPNn](screenshots/03n.PNG)
 
-3. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
+3. Das eben angelegte Interface konfigurieren und die eigenen Daten eintragen
+![VPN2n](screenshots/04n.PNG)
 
-Hier die VPN-Details nochmal:
+4. Unter "Firewall Settings" die Zone "WAN" auswählen, danach "Save & Apply" klicken
+![VPN2n](screenshots/05n.PNG)
 
-```
-VPN-Server: vpn.uni-potsdam.de
-PAP/CHAP username: deinname@uni-potsdam.de
-PAP/CHAP password: *Dein Passwort*
-```
+5. Den Router neu starten
+
+6. Andere Einstellungen vornehmen, wie WLAN Name/Passwort, Portforwards wenn man will etc...
+
+
 
 
 ## <a name="anleitung8"></a>Anleitung für den TL-WR841N v8.x
