@@ -123,7 +123,7 @@ $ okpg install ip
 $ echo 201 novpn >> /etc/iproute2/rt_tables
 $ ip rule add fwmark 1 table novpn
 $ ip route add default via 141.89.217.254 dev eth1 table novpn
-$ ip route list table vpn
+$ ip route list table novpn
 default via 141.89.217.254 dev eth1
 $ iptables -t mangle -A PREROUTING -p tcp --dport 80 -j MARK --set-mark 1
 $ iptables -t mangle -A PREROUTING -p tcp --dport 443 -j MARK --set-mark 1
