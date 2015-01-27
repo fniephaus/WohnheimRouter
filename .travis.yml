@@ -16,7 +16,7 @@ script:
   - export PROJECT_HOME="$(pwd)"
   - cd $HOME
   - mkdir openwrt && cd openwrt
-  - wget http://downloads.openwrt.org/snapshots/trunk/ar71xx/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
+  - wget https://downloads.openwrt.org/snapshots/trunk/ar71xx/generic/OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
   - tar -xvjf OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64.tar.bz2
   - cd OpenWrt-ImageBuilder-ar71xx_generic-for-linux-x86_64
   - make image PROFILE=TLWR841 PACKAGES="base-files busybox dnsmasq dropbear firewall
