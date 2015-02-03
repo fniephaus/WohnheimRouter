@@ -119,7 +119,7 @@ Wer sich ein bisschen mit Routing auskennt, kann die Netzwerkverbindung ein weni
 
 So kann man beispielsweise eine solche Route einrichten:
 ```bash
-$ okpg install ip
+$ opkg install ip
 $ echo 201 novpn >> /etc/iproute2/rt_tables
 $ ip rule add fwmark 1 table novpn
 $ ip route add default via 141.89.217.254 dev eth1 table novpn
